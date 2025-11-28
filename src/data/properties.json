@@ -1,0 +1,68 @@
+{
+  "client_details": {
+    "name": "Ad Meliora Real Estate",
+    "slogan": "Long-term rentals, short-term rentals and sales on Costa Blanca. Reliable service—contact us!",
+    "contact": {
+      "theo": "711 06 51 34",
+      "marco": "+46 70 570 98 25"
+    }
+  },
+  "properties": [
+    {
+      "id": "inmo-001",
+      "type": "Long-Term Rental",
+      "price": "€750 / month",
+      "location": "Villamartín, Orihuela Costa",
+      "features": ["2 bedrooms", "1 full bathroom", "Community pool", "Pets allowed"],
+      "description": "A bright and spacious apartment located in one of the most popular residential areas of Villamartín. Surrounded by golf courses, parks, restaurants, and all daily services — the perfect home for comfortable year-round living."
+    },
+    {
+      "id": "inmo-002",
+      "type": "Long-Term Rental",
+      "price": "€800 / month",
+      "location": "La Florida, Orihuela Costa",
+      "features": ["2 bedrooms", "1 bathroom", "Ground-floor corner unit", "Large private terrace"],
+      "description": "A bright and cozy corner bungalow available for long-term rental in one of the most popular areas of Costa Blanca. Perfect for comfortable year-round living."
+    },
+    {
+      "id": "inmo-003",
+      "type": "Long-Term Rental",
+      "price": "€1,300 / month",
+      "location": "Dehesa de Campoamor, Orihuela Costa",
+      "features": ["3 bedrooms", "2 bathrooms", "Private pool", "5 min walk to beach"],
+      "description": "Beautiful house just 5 minutes from the beach, perfect for year-round living in one of the most sought-after areas of Orihuela Costa."
+    },
+    {
+      "id": "inmo-004",
+      "type": "For Sale",
+      "price": "€130,500",
+      "location": "Torrevieja – La Siesta",
+      "features": ["2 bedrooms", "1 bathroom", "Private yard", "Fully furnished"],
+      "description": "Perfect as a holiday home or investment property in a quiet and well-connected residential area."
+    },
+    {
+      "id": "inmo-005",
+      "type": "Long-Term Rental",
+      "price": "€900 / month",
+      "location": "Central Rojales",
+      "features": ["3 bedrooms", "2 modern bathrooms", "Fully renovated", "Balcony"],
+      "description": "This spacious and modern home in the heart of Rojales is fully renovated and ready to move into."
+    },
+    {
+      "id": "inmo-006",
+      "type": "For Sale",
+      "price": "450,000 €",
+      "location": "Catral, Alicante",
+      "features": ["Luxury Villa", "3 bedrooms", "2 bathrooms w/ u-floor heating", "Private swimming pool 8x4m"],
+      "description": "A stunning newly built villa with premium finishes, modern design and full privacy — perfect for those seeking a high-quality home on the Costa Blanca."
+    },
+    {
+      "id": "inmo-007",
+      "type": "Long-Term Rental",
+      "price": "€1,600 / month",
+      "location": "Sea Senses, Punta Prima",
+      "features": ["2 bedrooms", "2 bathrooms", "Sea views", "3 swimming pools, Gym, Spa"],
+      "description": "A bright and elegant apartment located in the prestigious Sea Senses residential complex, offering stunning sea views and exceptional facilities."
+    }
+  ]
+}
