@@ -1,8 +1,2 @@
-// Dynamic page to avoid prerendering issues
-export const dynamic = 'force-dynamic';
-
-import { redirect } from 'next/navigation';
-
-export default function RootPage() {
-  redirect('/home');
-}
+// Re-export home page content directly to avoid redirect issues
+export { default } from './home/page';
