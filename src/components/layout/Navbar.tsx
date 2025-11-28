@@ -46,8 +46,10 @@ export function Navbar() {
               size="sm"
               className="bg-gradient-to-r from-purple-600 to-fuchsia-500 hover:from-purple-700 hover:to-fuchsia-600 text-white font-semibold shadow-lg hover:shadow-purple-500/25 transition-all duration-200"
             >
-              <Phone className="w-4 h-4 mr-2" />
-              <Link href="/contact">Get Help</Link>
+              <Link href="/contact">
+                <Phone className="w-4 h-4 mr-2" />
+                Get Help
+              </Link>
             </Button>
           </div>
 
@@ -80,8 +82,10 @@ export function Navbar() {
                   size="sm"
                   className="w-full bg-gradient-to-r from-purple-600 to-fuchsia-500 hover:from-purple-700 hover:to-fuchsia-600 text-white font-semibold shadow-lg hover:shadow-purple-500/25 transition-all duration-200"
                 >
-                  <Phone className="w-4 h-4 mr-2" />
-                  <Link href="/contact">Get Help</Link>
+                  <Link href="/contact">
+                    <Phone className="w-4 h-4 mr-2" />
+                    Get Help
+                  </Link>
                 </Button>
               </div>
             </div>
