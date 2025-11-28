@@ -1,5 +1,6 @@
 'use client';
 
+import { HeroSection } from '@/components/properties/HeroSection';
 import { Navbar } from '@/components/layout/Navbar';
 // Temporarily commented out for build isolation
 // import { Button } from '@/components/ui/button';
@@ -12,7 +13,8 @@ export default function HomePage() {
     <div className="min-h-screen bg-white">
       <Navbar />
 
-     
+      {/* Hero Section */}
+      <HeroSection />
 
       {/* Prominent CTA Section - TEMPORARILY COMMENTED OUT FOR BUILD ISOLATION */}
       {/* TODO: Re-enable after identifying prerendering issue */}
