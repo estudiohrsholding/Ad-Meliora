@@ -2,18 +2,13 @@
 
 import { Navbar } from '@/components/layout/Navbar';
 import { ContactForm } from '@/components/ContactForm';
+import propertyData from '@/data/properties.json';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Phone, MessageCircle, MapPin, Clock } from 'lucide-react';
 import Link from 'next/link';
 
 export default function ContactPage() {
-  // Static client details - can be moved to a separate config file if needed
-  const clientDetails = {
-    contact: {
-      theo: "+34 670 570 9825",
-      marco: "+34 670 570 9825"
-    }
-  };
+  const data = propertyData;
 
   return (
     <div className="min-h-screen bg-white">
@@ -61,7 +56,7 @@ export default function ContactPage() {
                   <div className="space-y-3">
                     <div className="flex items-center text-gray-700">
                       <Phone className="w-5 h-5 mr-3 text-admeliora-gold" />
-                      <span>{clientDetails.contact.theo}</span>
+                      <span>{data.client_details.contact.theo}</span>
                     </div>
                     <div className="flex items-center text-gray-700">
                       <Clock className="w-5 h-5 mr-3 text-admeliora-gold" />
@@ -80,7 +75,7 @@ export default function ContactPage() {
                   <div className="space-y-3">
                     <div className="flex items-center text-gray-700">
                       <Phone className="w-5 h-5 mr-3 text-admeliora-gold" />
-                      <span>{clientDetails.contact.marco}</span>
+                      <span>{data.client_details.contact.marco}</span>
                     </div>
                     <div className="flex items-center text-gray-700">
                       <Clock className="w-5 h-5 mr-3 text-admeliora-gold" />
@@ -133,8 +128,8 @@ export default function ContactPage() {
             <div>
               <h4 className="text-lg font-semibold mb-4 text-gray-950">Contact Info</h4>
               <div className="space-y-3">
-                <div className="text-gray-600">Theo: {clientDetails.contact.theo}</div>
-                <div className="text-gray-600">Marco: {clientDetails.contact.marco}</div>
+                <div className="text-gray-600">Theo: {data.client_details.contact.theo}</div>
+                <div className="text-gray-600">Marco: {data.client_details.contact.marco}</div>
                 <div className="text-gray-600">Costa Blanca, Spain</div>
               </div>
             </div>

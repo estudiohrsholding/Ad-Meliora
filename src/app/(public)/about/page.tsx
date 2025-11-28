@@ -1,18 +1,12 @@
 'use client';
 
 import { Navbar } from '@/components/layout/Navbar';
+import propertyData from '@/data/properties.json';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 
 export default function AboutPage() {
-  // Static client details - can be moved to a separate config file if needed
-  const clientDetails = {
-    slogan: "Your trusted partner for finding the perfect property in Costa Blanca. We specialize in long-term rentals, short-term rentals, and property sales across Villamartín, Orihuela Costa, Torrevieja, and more.",
-    contact: {
-      theo: "+34 670 570 9825",
-      marco: "+34 670 570 9825"
-    }
-  };
+  const data = propertyData;
 
   return (
     <div className="min-h-screen bg-white">
@@ -35,7 +29,7 @@ export default function AboutPage() {
             Meet Ad Meliora
           </h1>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            {clientDetails.slogan}
+            {data.client_details.slogan}
           </p>
         </div>
       </section>
@@ -49,7 +43,7 @@ export default function AboutPage() {
                 Ad Meliora Real Estate
               </h3>
               <p className="text-gray-600">
-                {clientDetails.slogan}
+                {data.client_details.slogan}
               </p>
             </div>
 
@@ -65,8 +59,8 @@ export default function AboutPage() {
             <div>
               <h4 className="text-lg font-semibold mb-4 text-gray-950">Contact Info</h4>
               <div className="space-y-3">
-                <div className="text-gray-600">Theo: {clientDetails.contact.theo}</div>
-                <div className="text-gray-600">Marco: {clientDetails.contact.marco}</div>
+                <div className="text-gray-600">Theo: {data.client_details.contact.theo}</div>
+                <div className="text-gray-600">Marco: {data.client_details.contact.marco}</div>
                 <div className="text-gray-600">Costa Blanca, Spain</div>
               </div>
             </div>
