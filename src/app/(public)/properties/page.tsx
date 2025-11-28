@@ -285,3 +285,20 @@ function PropertiesContent() {
     </div>
   );
 }
+
+export default function PropertiesPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="text-center">
+          <div className="text-gray-400 mb-4">
+            <Home className="w-16 h-16 mx-auto opacity-50 animate-pulse" />
+          </div>
+          <h3 className="text-xl font-semibold text-gray-950 mb-2">Loading properties...</h3>
+        </div>
+      </div>
+    }>
+      <PropertiesContent />
+    </Suspense>
+  );
+}
