@@ -107,11 +107,11 @@ export default function PropertyDetailPage() {
       <section className="pt-24 pb-8 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-beige-light to-white">
         <div className="max-w-7xl mx-auto">
           <Link 
-            href="/properties" 
+            href="/home" 
             className="inline-flex items-center text-gray-600 hover:text-[#B8860B] transition-colors mb-6"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Properties
+            Back to Home
           </Link>
 
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
@@ -167,9 +167,24 @@ export default function PropertyDetailPage() {
                           src={images[currentImageIndex]}
                           alt={property.name || 'Property image'}
                           className="w-full h-full object-cover"
+                          loading="lazy"
                           onError={(e) => {
                             const target = e.target as HTMLImageElement;
-                            target.style.display = 'none';
+                            const parent = target.parentElement;
+                            if (parent) {
+                              target.style.display = 'none';
+                              if (!parent.querySelector('.image-placeholder')) {
+                                const placeholder = document.createElement('div');
+                                placeholder.className = 'image-placeholder absolute inset-0 flex items-center justify-center text-gray-400';
+                                placeholder.innerHTML = `
+                                  <div class="text-center">
+                                    <div class="text-5xl mb-2 opacity-50">🏠</div>
+                                    <div class="text-xs opacity-70">Image not available</div>
+                                  </div>
+                                `;
+                                parent.appendChild(placeholder);
+                              }
+                            }
                           }}
                         />
                         {/* Navigation Arrows */}
@@ -213,6 +228,11 @@ export default function PropertyDetailPage() {
                                 src={image}
                                 alt={`Thumbnail ${index + 1}`}
                                 className="w-full h-full object-cover"
+                                loading="lazy"
+                                onError={(e) => {
+                                  const target = e.target as HTMLImageElement;
+                                  target.style.display = 'none';
+                                }}
                               />
                             </button>
                           ))}

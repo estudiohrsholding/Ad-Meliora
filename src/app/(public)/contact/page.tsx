@@ -19,7 +19,7 @@ export default function ContactPage() {
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-8">
             <Link 
-              href="/" 
+              href="/home" 
               className="inline-flex items-center text-gray-600 hover:text-admeliora-gold transition-colors mb-8"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
@@ -119,7 +119,7 @@ export default function ContactPage() {
             <div>
               <h4 className="text-lg font-semibold mb-4 text-gray-950">Quick Links</h4>
               <ul className="space-y-2">
-                <li><Link href="/" className="hover:text-admeliora-gold transition-colors">Home</Link></li>
+                <li><Link href="/home" className="hover:text-admeliora-gold transition-colors">Home</Link></li>
                 <li><Link href="/properties" className="hover:text-admeliora-gold transition-colors">Properties</Link></li>
                 <li><Link href="/about" className="hover:text-admeliora-gold transition-colors">About</Link></li>
               </ul>

@@ -5,7 +5,6 @@ import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { MapPin, Phone, MessageCircle, Star } from 'lucide-react';
-import { ImageCarousel } from './ImageCarousel';
 import Link from 'next/link';
 
 interface PropertyCardProps {
@@ -13,6 +12,7 @@ interface PropertyCardProps {
 }
 
 export function PropertyCard({ property }: PropertyCardProps) {
+
   const getTypeColor = (type: string) => {
     switch (type) {
       case 'sale':
@@ -42,24 +42,64 @@ export function PropertyCard({ property }: PropertyCardProps) {
     }
   };
 
+  // Defensive check: Ensure images array exists and has at least one image
+  const hasImages = property.images && Array.isArray(property.images) && property.images.length > 0;
+  const firstImage = hasImages ? property.images[0] : null;
+
   return (
     <Card className="group hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-200 bg-white hover:bg-beige-light shadow-soft">
-      {/* Image Carousel */}
-      <div className="relative">
-        <ImageCarousel 
-          images={property.images || []} 
-          propertyId={property.id}
-          propertyName={property.name}
-        />
+      {/* Image Container - Isolated rendering for debugging */}
+      <div className="relative h-48 w-full overflow-hidden">
+        <Link 
+          href={`/properties/${property.id}`} 
+          className="block relative h-full w-full cursor-pointer"
+        >
+          <div className="relative h-full w-full bg-gradient-to-br from-subtle-beige to-beige-light overflow-hidden">
+            {firstImage ? (
+              <img
+                src={firstImage}
+                alt={property.name || 'Property image'}
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                onError={(e) => {
+                  // Fallback to placeholder if image fails to load
+                  const target = e.target as HTMLImageElement;
+                  const parent = target.parentElement;
+                  if (parent) {
+                    target.style.display = 'none';
+                    if (!parent.querySelector('.image-placeholder')) {
+                      const placeholder = document.createElement('div');
+                      placeholder.className = 'image-placeholder absolute inset-0 flex items-center justify-center text-gray-400';
+                      placeholder.innerHTML = `
+                        <div class="text-center">
+                          <div class="text-5xl mb-2 opacity-50">🏠</div>
+                          <div class="text-xs opacity-70">Image not available</div>
+                        </div>
+                      `;
+                      parent.appendChild(placeholder);
+                    }
+                  }
+                }}
+                loading="lazy"
+              />
+            ) : (
+              <div className="absolute inset-0 flex items-center justify-center text-gray-400">
+                <div className="text-center">
+                  <div className="text-5xl mb-2 opacity-50">🏠</div>
+                  <div className="text-xs opacity-70">No image available</div>
+                </div>
+              </div>
+            )}
+          </div>
+        </Link>
         {/* Type Badge */}
-        <div className="absolute top-4 left-4 z-20">
-          <Badge className={`${getTypeColor(property.type)} text-white border-0 px-3 py-1 text-sm font-semibold shadow-lg`}>
+        <div className="absolute top-4 left-4 z-40 pointer-events-none">
+          <Badge className={`${getTypeColor(property.type)} text-white border-0 px-3 py-1 text-sm font-semibold shadow-lg pointer-events-auto`}>
             {getTypeLabel(property.type)}
           </Badge>
         </div>
         {/* Price Badge */}
-        <div className="absolute bottom-4 left-4 right-4 z-20">
-          <div className="bg-white/95 backdrop-blur-sm rounded-lg px-3 py-2 shadow-xl border border-gray-200">
+        <div className="absolute bottom-4 left-4 right-4 z-40 pointer-events-none">
+          <div className="bg-white/95 backdrop-blur-sm rounded-lg px-3 py-2 shadow-xl border border-gray-200 pointer-events-auto">
             <div className="text-xl font-bold text-gray-950">{property.price}</div>
           </div>
         </div>

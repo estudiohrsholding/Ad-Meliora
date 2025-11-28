@@ -72,7 +72,11 @@ export default function PropertiesPage() {
     return matchesSearch && matchesType;
   });
 
-  const propertyTypes = ['all', 'rent', 'sale', 'studio', ...Array.from(new Set(properties.map(p => p.type)))];
+  // Get unique property types and combine with base types, avoiding duplicates
+  const uniquePropertyTypes = Array.from(new Set(properties.map(p => p.type)));
+  const baseTypes = ['all', 'rent', 'sale', 'studio'];
+  const allTypesSet = new Set([...baseTypes, ...uniquePropertyTypes]);
+  const propertyTypes = Array.from(allTypesSet);
 
   // Get filter label for display
   const getFilterLabel = () => {
@@ -91,7 +95,7 @@ export default function PropertiesPage() {
         <div className="max-w-7xl mx-auto text-center">
           <div className="mb-8">
             <Link 
-              href="/" 
+              href="/home" 
               className="inline-flex items-center text-gray-600 hover:text-admeliora-gold transition-colors mb-8"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
@@ -257,7 +261,7 @@ export default function PropertiesPage() {
             <div>
               <h4 className="text-lg font-semibold mb-4 text-gray-950">Quick Links</h4>
               <ul className="space-y-2">
-                <li><Link href="/" className="hover:text-admeliora-gold transition-colors">Home</Link></li>
+                <li><Link href="/home" className="hover:text-admeliora-gold transition-colors">Home</Link></li>
                 <li><Link href="/about" className="hover:text-admeliora-gold transition-colors">About</Link></li>
                 <li><Link href="/contact" className="hover:text-admeliora-gold transition-colors">Contact</Link></li>
               </ul>
@@ -266,8 +270,8 @@ export default function PropertiesPage() {
             <div>
               <h4 className="text-lg font-semibold mb-4 text-gray-950">Contact Info</h4>
               <div className="space-y-3">
-                <div className="text-gray-600">Theo: {data.client_details.contact.theo}</div>
-                <div className="text-gray-600">Marco: {data.client_details.contact.marco}</div>
+                <div className="text-gray-600">Theo: +34 123 456 789</div>
+                <div className="text-gray-600">Marco: +34 987 654 321</div>
                 <div className="text-gray-600">Costa Blanca, Spain</div>
               </div>
             </div>
