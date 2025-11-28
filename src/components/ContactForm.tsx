@@ -19,7 +19,12 @@ interface ContactFormState {
 
 const N8N_WEBHOOK_URL = 'https://api.baibussines.com/webhooks/inmo_admeliora_lead';
 
-export function ContactForm() {
+interface ContactFormProps {
+  propertyId?: string;
+  propertyName?: string;
+}
+
+export function ContactForm({ propertyId, propertyName }: ContactFormProps = {}) {
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
@@ -77,7 +82,9 @@ export function ContactForm() {
         email: formData.email.trim(),
         phone: formData.phone.trim() || null,
         message: formData.message.trim(),
-        source: 'Ad Meliora Web Form'
+        source: 'Ad Meliora Web Form',
+        ...(propertyId && { property_id: propertyId }),
+        ...(propertyName && { property_name: propertyName })
       };
 
       const response = await fetch(N8N_WEBHOOK_URL, {
@@ -124,13 +131,15 @@ export function ContactForm() {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold text-white mb-6">Send Us a Message</h2>
+      {!propertyId && (
+        <h2 className="text-2xl font-heading font-bold text-gray-950 mb-6">Send Us a Message</h2>
+      )}
       
       {/* Success Message */}
       {state.success && (
-        <div className="mb-6 p-4 bg-green-900/30 border border-green-500/50 rounded-lg flex items-center gap-3">
-          <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0" />
-          <p className="text-green-300 text-sm">
+        <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center gap-3">
+          <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0" />
+          <p className="text-green-800 text-sm">
             Thank you! Your message has been sent successfully. We'll get back to you soon.
           </p>
         </div>
@@ -138,17 +147,17 @@ export function ContactForm() {
 
       {/* Error Message */}
       {state.error && (
-        <div className="mb-6 p-4 bg-red-900/30 border border-red-500/50 rounded-lg flex items-center gap-3">
-          <AlertCircle className="w-5 h-5 text-red-400 flex-shrink-0" />
-          <p className="text-red-300 text-sm">{state.error}</p>
+        <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center gap-3">
+          <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0" />
+          <p className="text-red-700 text-sm">{state.error}</p>
         </div>
       )}
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-            <User className="w-4 h-4 inline mr-2" />
-            Your Name <span className="text-red-400">*</span>
+          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+            <User className="w-4 h-4 inline mr-2 text-[#B8860B]" />
+            Your Name <span className="text-red-500">*</span>
           </label>
           <input
             type="text"
@@ -158,15 +167,15 @@ export function ContactForm() {
             onChange={handleChange}
             required
             disabled={state.loading}
-            className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-950 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#B8860B] focus:border-transparent transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
             placeholder="John Doe"
           />
         </div>
 
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-            <Mail className="w-4 h-4 inline mr-2" />
-            Email Address <span className="text-red-400">*</span>
+          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+            <Mail className="w-4 h-4 inline mr-2 text-[#B8860B]" />
+            Email Address <span className="text-red-500">*</span>
           </label>
           <input
             type="email"
@@ -176,14 +185,14 @@ export function ContactForm() {
             onChange={handleChange}
             required
             disabled={state.loading}
-            className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-950 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#B8860B] focus:border-transparent transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
             placeholder="john@example.com"
           />
         </div>
 
         <div>
-          <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
-            <Phone className="w-4 h-4 inline mr-2" />
+          <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+            <Phone className="w-4 h-4 inline mr-2 text-[#B8860B]" />
             Phone Number <span className="text-gray-500 text-xs">(Optional)</span>
           </label>
           <input
@@ -193,15 +202,15 @@ export function ContactForm() {
             value={formData.phone}
             onChange={handleChange}
             disabled={state.loading}
-            className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-950 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#B8860B] focus:border-transparent transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
             placeholder="+34 600 000 000"
           />
         </div>
 
         <div>
-          <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-            <MessageCircle className="w-4 h-4 inline mr-2" />
-            Your Message <span className="text-red-400">*</span>
+          <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+            <MessageCircle className="w-4 h-4 inline mr-2 text-[#B8860B]" />
+            Your Message <span className="text-red-500">*</span>
           </label>
           <textarea
             id="message"
@@ -211,15 +220,15 @@ export function ContactForm() {
             required
             rows={4}
             disabled={state.loading}
-            className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 resize-none disabled:opacity-50 disabled:cursor-not-allowed"
-            placeholder="Tell us about your dream property..."
+            className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-950 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#B8860B] focus:border-transparent transition-all duration-200 resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+            placeholder={propertyName ? `Tell us about ${propertyName}...` : "Tell us about your dream property..."}
           />
         </div>
 
         <Button
           type="submit"
           disabled={state.loading}
-          className="w-full bg-gradient-to-r from-purple-600 to-fuchsia-500 hover:from-purple-700 hover:to-fuchsia-600 text-white font-bold py-4 px-6 shadow-lg hover:shadow-purple-500/25 transition-all duration-200 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full bg-gradient-to-r from-[#FFD700] to-[#B8860B] hover:from-[#B8860B] hover:to-[#B8860B]/90 text-white font-bold py-4 px-6 shadow-lg hover:shadow-[#B8860B]/25 transition-all duration-200 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {state.loading ? (
             <>

@@ -1,0 +1,121 @@
+[
+  {
+    "id": "inmo-001",
+    "name": "Bright Apartment in Villamartín",
+    "location": "Villamartín, Orihuela Costa",
+    "price": "€750 / month",
+    "type": "rent",
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "description": "A bright and spacious apartment located in one of the most popular residential areas of Villamartín. Surrounded by golf courses, parks, restaurants, and all daily services — the perfect home for comfortable year-round living.",
+    "features": ["2 bedrooms", "1 full bathroom", "Community pool", "Pets allowed", "Golf course nearby"],
+    "images": [
+      "/properties-images/villamartin-01.jpg",
+      "/properties-images/villamartin-02.jpg",
+      "/properties-images/villamartin-03.jpg",
+      "/properties-images/villamartin-04.jpg"
+    ]
+  },
+  {
+    "id": "inmo-002",
+    "name": "Corner Bungalow with Terrace",
+    "location": "La Florida, Orihuela Costa",
+    "price": "€800 / month",
+    "type": "rent",
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "description": "A bright and cozy corner bungalow available for long-term rental in one of the most popular areas of Costa Blanca. Perfect for comfortable year-round living.",
+    "features": ["2 bedrooms", "1 bathroom", "Ground-floor corner unit", "Large private terrace", "Bright"],
+    "images": [
+      "/properties-images/florida-01.jpg",
+      "/properties-images/florida-02.jpg",
+      "/properties-images/florida-03.jpg",
+      "/properties-images/florida-04.jpg"
+    ]
+  },
+  {
+    "id": "inmo-003",
+    "name": "Beach House with Private Pool",
+    "location": "Dehesa de Campoamor, Orihuela Costa",
+    "price": "€1,300 / month",
+    "type": "rent",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "description": "Beautiful house just 5 minutes from the beach, perfect for year-round living in one of the most sought-after areas of Orihuela Costa.",
+    "features": ["3 bedrooms", "2 bathrooms", "Private pool", "5 min walk to beach", "Beach access"],
+    "images": [
+      "/properties-images/campoamor-01.jpg",
+      "/properties-images/campoamor-02.jpg",
+      "/properties-images/campoamor-03.jpg",
+      "/properties-images/campoamor-04.jpg"
+    ]
+  },
+  {
+    "id": "inmo-004",
+    "name": "Furnished Bungalow in La Siesta",
+    "location": "Torrevieja – La Siesta",
+    "price": "€130,500",
+    "type": "sale",
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "description": "Perfect as a holiday home or investment property in a quiet and well-connected residential area.",
+    "features": ["2 bedrooms", "1 bathroom", "Private yard", "Fully furnished", "Investment property"],
+    "images": [
+      "/properties-images/siesta-01.jpg",
+      "/properties-images/siesta-02.jpg",
+      "/properties-images/siesta-03.jpg",
+      "/properties-images/siesta-04.jpg"
+    ]
+  },
+  {
+    "id": "inmo-005",
+    "name": "Renovated Home in Rojales",
+    "location": "Central Rojales",
+    "price": "€900 / month",
+    "type": "rent",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "description": "This spacious and modern home in the heart of Rojales is fully renovated and ready to move into.",
+    "features": ["3 bedrooms", "2 modern bathrooms", "Fully renovated", "Balcony", "Modern"],
+    "images": [
+      "/properties-images/rojales-01.jpg",
+      "/properties-images/rojales-02.jpg",
+      "/properties-images/rojales-03.jpg",
+      "/properties-images/rojales-04.jpg"
+    ]
+  },
+  {
+    "id": "inmo-006",
+    "name": "Luxury New Build Villa",
+    "location": "Catral, Alicante",
+    "price": "450,000 €",
+    "type": "sale",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "description": "A stunning newly built villa with premium finishes, modern design and full privacy — perfect for those seeking a high-quality home on the Costa Blanca.",
+    "features": ["Luxury Villa", "3 bedrooms", "2 bathrooms w/ u-floor heating", "Private swimming pool 8x4m", "Premium finishes"],
+    "images": [
+      "/properties-images/catral-01.jpg",
+      "/properties-images/catral-02.jpg",
+      "/properties-images/catral-03.jpg",
+      "/properties-images/catral-04.jpg"
+    ]
+  },
+  {
+    "id": "inmo-007",
+    "name": "Sea Senses Elegant Apartment",
+    "location": "Sea Senses, Punta Prima",
+    "price": "€1,600 / month",
+    "type": "rent",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "description": "A bright and elegant apartment located in the prestigious Sea Senses residential complex, offering stunning sea views and exceptional facilities.",
+    "features": ["2 bedrooms", "2 bathrooms", "Sea views", "3 swimming pools, Gym, Spa", "Prestigious location"],
+    "images": [
+      "/properties-images/punta-prima-01.jpg",
+      "/properties-images/punta-prima-02.jpg",
+      "/properties-images/punta-prima-03.jpg",
+      "/properties-images/punta-prima-04.jpg"
+    ]
+  }
+]
