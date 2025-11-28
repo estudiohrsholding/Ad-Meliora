@@ -15,7 +15,9 @@ export default function HomePage() {
       {/* Hero Section */}
       <HeroSection />
 
-      {/* Prominent CTA Section - Pointing to Properties Page */}
+      {/* Prominent CTA Section - TEMPORARILY COMMENTED OUT FOR BUILD ISOLATION */}
+      {/* TODO: Re-enable after identifying prerendering issue */}
+      {/* 
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-beige-light/30">
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-8">
@@ -28,7 +30,6 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* Primary CTA - Maximum Impact */}
           <div className="relative inline-block group">
             <div className="absolute inset-0 bg-gradient-to-r from-[#FFD700] to-[#B8860B] rounded-2xl blur-xl opacity-40 group-hover:opacity-60 transition-opacity duration-300 animate-pulse" />
             <Button 
@@ -44,7 +45,6 @@ export default function HomePage() {
             </Button>
           </div>
 
-          {/* Trust Indicators */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-16 max-w-4xl mx-auto">
             <div className="text-center">
               <div className="text-2xl font-bold text-gray-950 mb-2">{propertyData.properties.length}</div>
@@ -65,6 +65,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      */}
 
       {/* Footer */}
       <footer className="bg-beige-light/20 border-t border-gray-200 text-gray-700 py-12 px-4 sm:px-6 lg:px-8">
