@@ -2,10 +2,11 @@
 
 import { HeroSection } from '@/components/properties/HeroSection';
 import { Navbar } from '@/components/layout/Navbar';
-import { Button } from '@/components/ui/button';
-import { ArrowRight, Sparkles } from 'lucide-react';
-import Link from 'next/link';
-import propertyData from '@/data/properties.json';
+// Temporarily commented out for build isolation
+// import { Button } from '@/components/ui/button';
+// import { ArrowRight, Sparkles } from 'lucide-react';
+// import Link from 'next/link';
+// import propertyData from '@/data/properties.json';
 
 export default function HomePage() {
   return (
@@ -67,7 +68,9 @@ export default function HomePage() {
       </section>
       */}
 
-      {/* Footer */}
+      {/* Footer - TEMPORARILY COMMENTED OUT FOR BUILD ISOLATION */}
+      {/* TODO: Re-enable after identifying prerendering issue */}
+      {/*
       <footer className="bg-beige-light/20 border-t border-gray-200 text-gray-700 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8 mb-8">
@@ -104,6 +107,7 @@ export default function HomePage() {
           </div>
         </div>
       </footer>
+      */}
     </div>
   );
 }
